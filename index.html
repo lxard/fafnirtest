@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Premium Store</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #f4f4f6;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 30px 20px;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      color: #666;
+      font-size: 1rem;
+    }
+
+    /* Daftar produk */
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      padding: 24px;
+      flex: 1;
+    }
+
+    /* Item produk */
+    .product-item {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .product-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .product-item h2 {
+      margin: 16px 16px 8px;
+      font-size: 1.25rem;
+    }
+
+    .desc {
+      margin: 0 16px 8px;
+      color: #666;
+      font-size: 0.93rem;
+    }
+
+    .price {
+      margin: 0 16px 16px;
+      font-weight: bold;
+      color: #2a9d8f;
+      font-size: 1.1rem;
+    }
+
+    .product-item button {
+      margin: 0 16px 16px;
+      padding: 10px;
+      background: #264653;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .product-item button:hover {
+      background: #1a3f45;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 16px;
+      background: #fff;
+      font-size: 0.9rem;
+      color: #777;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Premium Store</h1>
+    <p>Menyediakan berbagai produk digital legal & terpercaya.</p>
+  </header>
+
+  <main class="product-list">
+    <div class="product-item">
+      <img src="https://files.catbox.moe/7ukiba.jpeg" alt="Alight Motion Privat" class="product-img">
+      <h2>Alight Motion Privat</h2>
+      <p class="desc">Akun Alight Motion Premium Privat 1 Tahun</p>
+      <p class="price">Rp 5.000</p>
+      <button onclick="buyViaWhatsApp('Alight Motion Privat', 5000)">Beli via WA</button>
+    </div>
+
+    <div class="product-item">
+      <img src="https://files.catbox.moe/7ukiba.jpeg" alt="Alight Motion Sharing" class="product-img">
+      <h2>Alight Motion Sharing</h2>
+      <p class="desc">Akun Alight Motion Premium Sharing 1 Tahun</p>
+      <p class="price">Rp 2.500</p>
+      <button onclick="buyViaWhatsApp('Alight Motion Sharing', 2500)">Beli via WA</button>
+    </div>
+
+    <div class="product-item">
+      <img src="https://files.catbox.moe/o27qev.jpeg" alt="Capcut Privat" class="product-img">
+      <h2>Capcut Privat</h2>
+      <p class="desc">Akun Capcut Pro Privat 1 Bulan</p>
+      <p class="price">Rp 15.000</p>
+      <button onclick="buyViaWhatsApp('Capcut Privat', 15000)">Beli via WA</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Premium Store. Hubungi kami di WhatsApp.</p>
+  </footer>
+
+  <script>
+    function buyViaWhatsApp(productName, price) {
+      const adminPhone = "628123456789"; // ganti dengan nomor WA admin
+      const message = `Halo admin, saya ingin membeli *${productName}* seharga Rp ${price.toLocaleString()}. Apakah masih tersedia?`;
+      const waURL = `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
+      window.location.href = waURL;
+    }
+  </script>
+</body>
+</html>
